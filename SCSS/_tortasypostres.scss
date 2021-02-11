@@ -1,0 +1,7 @@
+.img-producto {
+    @extend %tamaño-de-imagenes-catalogo;
+}
+
+.img-producto:hover {
+    @extend %transicion-catalogo;
+}

@@ -1,0 +1,74 @@
+@import "inicio";
+@import "tortasypostres";
+@import "insumosdereposteria";
+@import "conocenos";
+@import "contactanos";
+@import "variables";
+@import "funciones";
+
+//PROPIEDADES GENERALES PARA TODAS LAS PÁGINAS
+
+* {
+    font-family: $fuente;
+}
+
+body {
+    background-color: $blanco;
+}
+
+// HEADER
+
+.logo {
+    width: 300px;
+}
+
+.navbar {
+    background-color: $azul-principal;
+}
+
+.nav-item:hover {
+    background-color: $azul-terciario;
+}
+
+// MAIN
+
+.colorTitulos {
+    color: $azul-principal;
+    text-align: center;
+}
+
+// FOOTER
+
+footer {
+    background-color: $azul-claro;
+    margin-top: 40px;
+    div {
+        h4 {
+            color: $azul-principal;
+        }
+    }
+}
+
+.info-adicional {
+    list-style-type: disc;
+    color: $azul-secundario;
+    li {
+        a {
+            text-decoration: none;
+            color: $negro;
+            font-size: 14px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.imgRedesSociales {
+    height: 30px;
+    width: 30px;
+}
+
+.transport {
+    width: 150px;
+}
