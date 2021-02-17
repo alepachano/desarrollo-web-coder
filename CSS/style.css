@@ -3,14 +3,19 @@
   height: 100%; }
 
 .productos-populares {
-  width: 130px;
+  min-width: 130px;
   height: 130px; }
+
+@media all and (max-width: 578px) {
+  .productos-populares {
+    width: 180px;
+    height: 180px; } }
 
 .img-producto, .img-insumo {
   width: 200px;
   height: 200px; }
 
-.productos-populares:hover, .img-producto:hover, .img-insumo:hover {
+.img-producto:hover, .img-insumo:hover {
   transition: 1s;
   transform: scale(1.2); }
 
