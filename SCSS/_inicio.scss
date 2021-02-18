@@ -6,11 +6,11 @@
 }
 
 .productos-populares {
-    min-width: 130px;
-    height: 130px;
+    min-width: 150px;
+    height: 150px;
 }
 
-@media all and (max-width: 578px){
+@media all and (max-width: 578px) {
     .productos-populares {
         width: 180px;
         height: 180px;
