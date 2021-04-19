@@ -27,14 +27,6 @@ let pregunta = "s";
 let producto = "";
 let cantidadCompra = 0;
 
-while (pregunta == "s") {
-    producto = prompt('Indiqué el número de producto que desea comprar, escriba del 1 al 8');
-    cantidadCompra = Number(prompt('¿Que cantidad desea comprar?'));
-    const productoAComprar = buscarProducto(producto);
-    validarStock(productoAComprar, cantidadCompra);
-    pregunta = prompt('¿Desea agregar otro producto? Si: s No: n');
-}
-
 //Paso 1: Funcion BUSCAR PRODUCTO
 function buscarProducto(nombre) {
     if(nombre != "") {
@@ -94,10 +86,19 @@ function verCarrito(){
     console.log(`Total a pagar: CLP ${totalCarrito}`);
 }
 
+//Ingreso de informacion por parte del cliente + acumulacion de productos en el carrito
+while (pregunta == "s") {
+    producto = prompt('Indiqué el número de producto que desea comprar, escriba del 1 al 8');
+    cantidadCompra = Number(prompt('¿Que cantidad desea comprar?'));
+    const productoAComprar = buscarProducto(producto);
+    validarStock(productoAComprar, cantidadCompra);
+    pregunta = prompt('¿Desea agregar otro producto? Si: s No: n');
+}
+
 verCarrito();
 
 if (totalCarrito > 0) {
     alert(`Total a pagar: CLP ${totalCarrito}. Gracias por tu compra!!!`);
 } else {
-    alert('Vuelve pronto :(');
+    alert('¡Vuelve pronto!');
 }
