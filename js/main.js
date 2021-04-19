@@ -1,12 +1,16 @@
 //Objetos
 class Producto {
     constructor(id, nombre, descripcion, precio, stock, cantidadCompra) {
-    this.id = id;
-    this.nombre = nombre;
-    this.descripcion = descripcion;
-    this.precio = precio;
-    this.stock = stock;
-    this.cantidadCompra = cantidadCompra;
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.stock = stock;
+        this.cantidadCompra = cantidadCompra;
+    }
+
+    calcularPrecio() {
+        return this.precio * this.cantidadCompra;
     }
 }
 
@@ -79,7 +83,7 @@ function verCarrito(){
         console.log(`Producto: ${carrito[i].nombre}`);
         console.log(`Cantidad: ${carrito[i].cantidadCompra}`);
         console.log(`Precio unitario: ${carrito[i].precio}`);
-        const totalProducto = (carrito[i].cantidadCompra*carrito[i].precio);
+        const totalProducto = carrito[i].calcularPrecio();
         console.log(`Total: CLP ${totalProducto}`);
         totalCarrito += totalProducto;
     }
