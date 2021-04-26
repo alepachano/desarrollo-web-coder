@@ -1,10 +1,11 @@
-//Objetos
+// Objetos
 class Producto {
-    constructor(id, nombre, descripcion, precio, stock, cantidadCompra) {
+    constructor(id, nombre, descripcion, precio, imagen, stock, cantidadCompra) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.imagen = imagen;
         this.stock = stock;
         this.cantidadCompra = cantidadCompra;
     }
@@ -14,95 +15,63 @@ class Producto {
     }
 }
 
-//Productos que vende Planeta Deli en la sección Insumos de Repostería - Ingredientes
-const producto1 = new Producto (1, "Harina c/polvos", "10 unidades x 1Kg", 9000, 100, 0);
-const producto2 = new Producto (2, "Mantequilla s/sal", "12 unidades x 250g", 20000, 200, 0);
-const producto3 = new Producto (3, "Chips de chocolate", "12 unidades x 200g", 8000, 40, 0);
-const producto4 = new Producto (4, "Cobertura de chocolate Caravella", "10 unidades x 1Kg", 9000, 20, 0);
-const producto5 = new Producto (5, "Pack de esencias", "4 unidades x 400ml", 7000, 10, 0);
-const producto6 = new Producto (6, "Manjar", "20 unidades x 100g", 12500, 50, 0);
-const producto7 = new Producto (7, "Cobertura de chocolate Callebaut", "10 unidades x 1Kg", 10000, 25, 0);
-const producto8 = new Producto (8, "Nutella", "3 kg", 12000, 55, 0);
-
-//Variables
+// Variables
 const carrito=[];
 let totalCarrito = 0;
-let pregunta = "s";
-let producto = "";
 let cantidadCompra = 0;
+let cardList = "";
+const seccionIngredientes = [];
+let producto = "";
 
-//Paso 1: Funcion BUSCAR PRODUCTO
-function buscarProducto(nombre) {
-    if(nombre != "") {
-        switch(nombre) {
-            case "1" :
-                return producto1;
-            case "2" :
-                return producto2;
-            case "3" :
-                return producto3;
-            case "4" :
-                return producto4;
-            case "5" :
-                return producto5;
-            case "6" :
-                return producto6;
-            case "7" :
-                return producto7;
-            case "8" :
-                return producto8;
-            default:
-                return undefined;
+// Cargar datos de productos que vende Planeta Deli en la sección Insumos de Repostería - Ingredientes
+function inicializarDatos() {
+    seccionIngredientes.push(new Producto (1, "Harina c/polvos", "10 unidades x 1Kg", 9000, "./imagenes/harina.jpg", 100, 0));
+    seccionIngredientes.push(new Producto (2, "Mantequilla s/sal", "12 unidades x 250g", 20000, "./imagenes/mantequilla.jpg", 200, 0));
+    seccionIngredientes.push(new Producto (3, "Chips de chocolate", "12 unidades x 200g", 8000, "./imagenes/chips-chocolate.jpg", 40, 0));
+    seccionIngredientes.push(new Producto (4, "Chocolate Caravella", "10 unidades x 1Kg", 9000, "./imagenes/cobertura.jpg", 20, 0));
+    seccionIngredientes.push(new Producto (5, "Pack de esencias", "4 unidades x 400ml", 7000, "./imagenes/esencia.jpg", 10, 0));
+    seccionIngredientes.push(new Producto (6, "Manjar", "20 unidades x 100g", 12500, "./imagenes/manjar.jpg", 50, 0));
+    seccionIngredientes.push(new Producto (7, "Chocolate Callebaut", "10 unidades x 1Kg", 10000, "./imagenes/callebaut.jpg", 25, 0));
+    seccionIngredientes.push(new Producto (8, "Nutella", "Presentación de 3 kg", 12000, "./imagenes/nutella.jpg", 55, 0));
+}
+
+// CARDS
+function renderizarProductos() {
+    for (let i=0; i<seccionIngredientes.length; i++) {
+        const elemento = seccionIngredientes[i]; 
+        if (seccionIngredientes[i].stock > 0) {
+            cardList += `
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
+                <div class="card mb-5">
+                    <img src=${seccionIngredientes[i].imagen} class="card-img-top propiedades-card" alt="${seccionIngredientes[i].nombre}">
+                    <div class="card-body">
+                        <h6 class="card-title">${seccionIngredientes[i].nombre}</h6>
+                        <p class="card-text">${seccionIngredientes[i].descripcion}</p>
+                        <p class="card-text">CLP ${seccionIngredientes[i].precio}</p>
+                        <input type="number" class= "input-cantidad text-center" value="${seccionIngredientes[i].cantidadCompra}" id="cantidadProducto-${elemento.id}">
+                        <button type="submit" class="btn btn-info" onclick="agregarAlCarrito(${elemento.id})">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>`;
         }
-    } else {
-        return undefined;
     }
 }
 
-//Paso 2: FUNCION VALIDAR STOCK Y AGREGAR PRODUCTO AL CARRITO
-function validarStock(producto, cantidad) {
-    if(producto) {
-        if ((cantidad != 0) && (cantidad <= producto.stock)) {
-            console.log(`Si se encuenta disponible el producto ${producto.nombre} en bodega.`);
-            producto.cantidadCompra = cantidad;
-            carrito.push(producto);
-            console.log(`Se ha agregado un nuevo producto a tu carrito de compra: ${producto.nombre} x ${cantidadCompra} unidades`);
-        } else {
-            console.log(`Stock insuficiente. La cantidad disponible del producto ${producto.nombre} es ${producto.stock} unidades.`);
+inicializarDatos();
+renderizarProductos();
+document.getElementById('ingredientes').innerHTML = cardList;
+
+// BUSCAR PRODUCTO (STOCK) Y AGREGAR AL CARRITO
+function agregarAlCarrito(identificadorProducto) {
+    let productoSeleccionado = {};
+    for (let i=0; i<seccionIngredientes.length; i++) {
+        if (identificadorProducto === seccionIngredientes[i].id) {
+            productoSeleccionado = seccionIngredientes[i];
         }
-    } else {
-        alert('Debe ingresar un producto valido');
     }
-}
-
-//PASO 3: VER CARRITO
-function verCarrito(){
-    console.log(`Tu carrito de compra contiene ${carrito.length} producto(s)`);
-    console.log('Detalle de productos del carrito de compras: ');
-    for (let i=0; i<carrito.length; i++) {
-        console.log(`Producto: ${carrito[i].nombre}`);
-        console.log(`Cantidad: ${carrito[i].cantidadCompra}`);
-        console.log(`Precio unitario: ${carrito[i].precio}`);
-        const totalProducto = carrito[i].calcularPrecio();
-        console.log(`Total: CLP ${totalProducto}`);
-        totalCarrito += totalProducto;
-    }
-    console.log(`Total a pagar: CLP ${totalCarrito}`);
-}
-
-//Ingreso de informacion por parte del cliente + acumulacion de productos en el carrito
-while (pregunta == "s") {
-    producto = prompt('Indiqué el número de producto que desea comprar, escriba del 1 al 8');
-    cantidadCompra = Number(prompt('¿Que cantidad desea comprar?'));
-    const productoAComprar = buscarProducto(producto);
-    validarStock(productoAComprar, cantidadCompra);
-    pregunta = prompt('¿Desea agregar otro producto? Si: s No: n');
-}
-
-verCarrito();
-
-if (totalCarrito > 0) {
-    alert(`Total a pagar: CLP ${totalCarrito}. Gracias por tu compra!!!`);
-} else {
-    alert('¡Vuelve pronto!');
+    cantidadCompra = document.getElementById(`cantidadProducto-${productoSeleccionado.id}`).value;
+    console.log(productoSeleccionado);
+    console.log(cantidadCompra);
+    carrito.push(productoSeleccionado);
+    document.getElementById('alertaCompra').innerHTML = `<div class="mt-3 alert alert-success" role="alert">¡Añadiste un producto a tu carrito!</div>`;
 }

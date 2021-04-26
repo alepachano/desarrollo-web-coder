@@ -1,0 +1,9 @@
+.propiedades-card {
+    @extend %tamano-imagen-card;
+}
+
+.input-cantidad {
+    width: 50px;
+    height: 40px;
+    margin-right: 5px;
+}
