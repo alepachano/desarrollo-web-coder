@@ -38,18 +38,18 @@ function inicializarDatos() {
 // CARDS
 function renderizarProductos() {
     for (let i=0; i<seccionIngredientes.length; i++) {
-        const elemento = seccionIngredientes[i]; 
-        if (seccionIngredientes[i].stock > 0) {
+        const producto = seccionIngredientes[i]; 
+        if (producto.stock > 0) {
             cardList += `
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
                 <div class="card mb-5">
-                    <img src=${seccionIngredientes[i].imagen} class="card-img-top propiedades-card" alt="${seccionIngredientes[i].nombre}">
+                    <img src=${producto.imagen} class="card-img-top propiedades-card" alt="${producto.nombre}">
                     <div class="card-body">
-                        <h6 class="card-title">${seccionIngredientes[i].nombre}</h6>
-                        <p class="card-text">${seccionIngredientes[i].descripcion}</p>
-                        <p class="card-text">CLP ${seccionIngredientes[i].precio}</p>
-                        <input type="number" class= "input-cantidad text-center" value="${seccionIngredientes[i].cantidadCompra}" id="cantidadProducto-${elemento.id}">
-                        <button type="submit" class="btn btn-info" onclick="agregarAlCarrito(${elemento.id})">Agregar al carrito</a>
+                        <h6 class="card-title">${producto.nombre}</h6>
+                        <p class="card-text">${producto.descripcion}</p>
+                        <p class="card-text">CLP ${producto.precio}</p>
+                        <input id="cantidadProducto-${producto.id}" value="${producto.cantidadCompra}" type="number" class="input-cantidad text-center" min="1" max="${producto.stock}">
+                        <button type="submit" class="btn btn-info" onclick="agregarProductoAlCarrito(${producto.id})">Agregar al carrito</a>
                     </div>
                 </div>
             </div>`;
@@ -61,17 +61,21 @@ inicializarDatos();
 renderizarProductos();
 document.getElementById('ingredientes').innerHTML = cardList;
 
-// BUSCAR PRODUCTO (STOCK) Y AGREGAR AL CARRITO
-function agregarAlCarrito(identificadorProducto) {
-    let productoSeleccionado = {};
-    for (let i=0; i<seccionIngredientes.length; i++) {
-        if (identificadorProducto === seccionIngredientes[i].id) {
-            productoSeleccionado = seccionIngredientes[i];
-        }
+// BUSCAR PRODUCTO (STOCK) Y AGREGAR AL CARRITO 
+
+function agregarProductoAlCarrito(identificadorProducto) {
+    console.log('mi id es: ' + identificadorProducto);
+    const inputContador = `cantidadProducto-${identificadorProducto}`;
+    if(document.getElementById(inputContador).value >= 1) {
+        console.log('la cantidad es mayor a 1');
+        document.getElementById('alertaAgregarProductoAlCarrito').innerHTML = 
+            `<div class="mt-3 alert alert-success" role="alert">
+                ¡Se ha agregado un producto al carrito de compras! El total a pagar es CLP ${totalCarrito}.
+            </div>`;
+    } else {
+        document.getElementById('alertaAgregarProductoAlCarrito').innerHTML = 
+            `<div class="alert alert-danger" role="alert">
+                Para agregar el producto al carrito la cantidad del producto debe ser mayor o igual a 1
+            </div>`;
     }
-    cantidadCompra = document.getElementById(`cantidadProducto-${productoSeleccionado.id}`).value;
-    console.log(productoSeleccionado);
-    console.log(cantidadCompra);
-    carrito.push(productoSeleccionado);
-    document.getElementById('alertaCompra').innerHTML = `<div class="mt-3 alert alert-success" role="alert">¡Añadiste un producto a tu carrito!</div>`;
 }
