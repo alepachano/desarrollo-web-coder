@@ -16,12 +16,11 @@ class Producto {
 }
 
 // Variables
-const carrito=[];
-let totalCarrito = 0;
-let cantidadCompra = 0;
-let cardList = "";
 const seccionIngredientes = [];
+let cardList = "";
 let producto = "";
+let carrito = [];
+let storageValores = localStorage.storageCarrito;
 
 // Cargar datos de productos que vende Planeta Deli en la sección Insumos de Repostería - Ingredientes
 function inicializarDatos() {
@@ -48,8 +47,7 @@ function renderizarProductos() {
                         <h6 class="card-title">${producto.nombre}</h6>
                         <p class="card-text">${producto.descripcion}</p>
                         <p class="card-text">CLP ${producto.precio}</p>
-                        <input id="cantidadProducto-${producto.id}" value="${producto.cantidadCompra}" type="number" class="input-cantidad text-center" min="1" max="${producto.stock}">
-                        <button type="submit" class="btn btn-info" onclick="agregarProductoAlCarrito(${producto.id})">Agregar al carrito</a>
+                        <button type="submit" class="btn btn-info" onclick="identificarId(${producto.id}) ">Agregar al carrito</a>
                     </div>
                 </div>
             </div>`;
@@ -57,25 +55,67 @@ function renderizarProductos() {
     }
 }
 
-inicializarDatos();
-renderizarProductos();
-document.getElementById('ingredientes').innerHTML = cardList;
-
-// BUSCAR PRODUCTO (STOCK) Y AGREGAR AL CARRITO 
-
-function agregarProductoAlCarrito(identificadorProducto) {
-    console.log('mi id es: ' + identificadorProducto);
-    const inputContador = `cantidadProducto-${identificadorProducto}`;
-    if(document.getElementById(inputContador).value >= 1) {
-        console.log('la cantidad es mayor a 1');
-        document.getElementById('alertaAgregarProductoAlCarrito').innerHTML = 
-            `<div class="mt-3 alert alert-success" role="alert">
-                ¡Se ha agregado un producto al carrito de compras! El total a pagar es CLP ${totalCarrito}.
-            </div>`;
+// VALIDAR LOCAL STORAGE
+const validarLocalStorage = () => {
+    if(storageValores === undefined) {
+        carrito = [];
+        console.log('el storage se encuentra vacio');
     } else {
-        document.getElementById('alertaAgregarProductoAlCarrito').innerHTML = 
-            `<div class="alert alert-danger" role="alert">
-                Para agregar el producto al carrito la cantidad del producto debe ser mayor o igual a 1
-            </div>`;
+        carrito = JSON.parse(storageValores);
+        console.log('Local storage: ', carrito);
     }
 }
+
+inicializarDatos();
+renderizarProductos();
+const ingredientes = document.getElementById('ingredientes');
+ingredientes.innerHTML = cardList;
+validarLocalStorage();
+
+// IDENTIFICA ID DEL PRODUCTO Y AGREGA EL ID CARRITO
+function identificarId(identificadorProducto) {
+    console.log('id: ' + identificadorProducto);
+    const productoBuscado = seccionIngredientes.find((producto) => producto.id === identificadorProducto);
+    agregarAlCarrito(productoBuscado);
+    const alerta = document.getElementById('alertaAgregarAlCarrito');
+    alerta.innerHTML = 
+    `<div class="mt-3 alert alert-success" role="alert">
+        ¡Se ha agregado un producto al carrito de compras!
+    </div>`;
+}
+
+// VALIDAR SI EL PRODUCTO DEL CARRITO SE REPITE
+function validarProductoCarrito (identificadorProducto) {
+    const producto = carrito.find((item) => item.id === identificadorProducto);
+    return producto;
+}
+
+// AGREGAR AL CARRITO
+function agregarAlCarrito(producto) {
+    const productoCarrito = validarProductoCarrito(producto.id);
+    console.log('validando si existe en el carrito: ', productoCarrito);
+    if (productoCarrito) {
+        productoCarrito.cantidadCompra += 1; 
+        console.log('carrito: ', carrito);
+        localStorage.setItem('storageCarrito', JSON.stringify(carrito));
+    } else {
+        producto.cantidadCompra = 1;
+        carrito.push(producto);
+        console.log('carrito: ', carrito);
+        localStorage.setItem('storageCarrito', JSON.stringify(carrito));
+    }
+}
+
+// validarLocalStorage() {
+
+// }
+
+
+// const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
+// alertaCarritoVacio.innerHTML =
+// `<div class="mt-3 alert alert-danger" role="alert">
+//     ¡Tu carrito de compras se encuentra vacio!
+// </div>`;
+
+// MOSTRAR CARRITO DE COMPRAS
+
