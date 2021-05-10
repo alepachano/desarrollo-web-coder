@@ -26,7 +26,13 @@
 
 .propiedades-card {
   width: 230px;
-  height: 230px; }
+  height: 230px;
+  display: block;
+  margin: auto; }
+
+.button-incremento-decremento {
+  border: none;
+  background-color: #ffffff; }
 
 * {
   font-family: "Raleway", sans-serif; }
