@@ -47,7 +47,7 @@ function renderizarProductos() {
                         <h6 class="card-title">${producto.nombre}</h6>
                         <p class="card-text">${producto.descripcion}</p>
                         <p class="card-text">CLP ${producto.precio}</p>
-                        <button type="submit" class="btn btn-info" onclick="identificarId(${producto.id}) ">Agregar al carrito</a>
+                        <button type="submit" class="btn btn-info" onclick="identificarId(${producto.id})">Agregar al carrito</a>
                     </div>
                 </div>
             </div>`;
@@ -79,9 +79,12 @@ function identificarId(identificadorProducto) {
     agregarAlCarrito(productoBuscado);
     const alerta = document.getElementById('alertaAgregarAlCarrito');
     alerta.innerHTML = 
-    `<div class="mt-3 alert alert-success" role="alert">
-        ¡Se ha agregado un producto al carrito de compras!
-    </div>`;
+        `<div class="mt-3 alert alert-success" role="alert">
+            ¡Se ha agregado un producto al carrito de compras!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>`;
 }
 
 // VALIDAR SI EL PRODUCTO DEL CARRITO SE REPITE
@@ -105,17 +108,3 @@ function agregarAlCarrito(producto) {
         localStorage.setItem('storageCarrito', JSON.stringify(carrito));
     }
 }
-
-// validarLocalStorage() {
-
-// }
-
-
-// const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
-// alertaCarritoVacio.innerHTML =
-// `<div class="mt-3 alert alert-danger" role="alert">
-//     ¡Tu carrito de compras se encuentra vacio!
-// </div>`;
-
-// MOSTRAR CARRITO DE COMPRAS
-

@@ -15,22 +15,57 @@ if (carrito.length === 0) {
     </div>`;
 }
 
-for (const [index, item] of carrito.entries()) {
-    console.log('probando for', item);
-    console.log('probando index', index);
-    const precioProducto = item.cantidadCompra * item.precio;
-    totalCompra += precioProducto;
-    cartList += 
-    `<tr>
-        <th scope="row">${index+1}</th>
-        <td>${item.nombre}</td>
-        <td>${item.cantidadCompra}</td>
-        <td>${precioProducto}</td>
-    </tr>`
+function actualizarCantidad(identificador, operacion) {
+    let producto = carrito.find((producto) => producto.id === identificador);
+    if (operacion === 'suma') {
+        producto.cantidadCompra += 1; 
+    } else {
+        producto.cantidadCompra -= 1;
+    }
+    limpiarPantalla();
+    actualizarPantalla();
+    localStorage.setItem('storageCarrito', JSON.stringify(carrito));
 }
 
-const mostrarCarrito = document.getElementById('tablaCarrito');
-mostrarCarrito.innerHTML = cartList;
+function renderizarCarrito() {
+    let carritoHTML = '';
+    let calcularTotal = 0;
+    for (const [index, item] of carrito.entries()) {
+        const precioProducto = item.cantidadCompra * item.precio;
+        calcularTotal += precioProducto;
+        carritoHTML += 
+        `<tr>
+            <th scope="row">${index+1}</th>
+            <td>${item.nombre}</td>
+            <td>
+                <button class="button-incremento-decremento decrementoProducto" onclick="actualizarCantidad(${item.id}, 'resta')" type="button">-</button>
+                <label>${item.cantidadCompra}</label>
+                <button class="button-incremento-decremento incremento-producto" onclick="actualizarCantidad(${item.id}, 'suma')" type="button">+</button>
+            </td>
+            <td>${precioProducto}</td>
+        </tr>`
+    }
+    return { carritoHTML: carritoHTML, totalCompra: calcularTotal };
+}
 
-totalPedido = document.getElementById('totalPedido');
-totalPedido.innerHTML = `${totalCompra}`;
+function limpiarPantalla() {
+    const mostrarCarrito = document.getElementById('tablaCarrito');
+    mostrarCarrito.textContent = '';
+    totalPedido = document.getElementById('totalPedido');
+    totalPedido.textContent = '';
+}
+
+function actualizarPantalla() {
+    const respuesta = renderizarCarrito();
+    cartList = respuesta.carritoHTML;
+    console.log(cartList);
+    const mostrarCarrito = document.getElementById('tablaCarrito');
+    mostrarCarrito.innerHTML = cartList;
+    totalPedido = document.getElementById('totalPedido');
+    console.log('imprimiendo card list');
+    totalPedido.innerHTML = `${respuesta.totalCompra}`;
+}
+
+actualizarPantalla();
+
+
