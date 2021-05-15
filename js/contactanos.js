@@ -78,7 +78,7 @@ function validarCamposTexto(formulario){
         enviarAlertaError('apellido');
     } else if ((formulario.telefono.trim() == null) || (formulario.telefono.trim().length != 9) || (isNaN(formulario.telefono))) {
         enviarAlertaError('teléfono');
-    } else if ((formulario.correo.trim() == null) || (formulario.correo.trim().length === 0)) {
+    } else if ((formulario.correo.trim() == null) || (formulario.correo.trim().length === 0) || (formulario.correo.indexOf('@') === -1) || formulario.correo.indexOf('.com') === -1) {
         enviarAlertaError('correo');
     } else if (formulario.region === 'Selecciona') {
         enviarAlertaError('region');
