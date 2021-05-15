@@ -5,6 +5,8 @@ let totalCompra = 0;
 if (localStorage && localStorage.storageCarrito) {
     carrito = JSON.parse(localStorage.storageCarrito);
     console.log(carrito);
+    let botonContinuarCompra = document.getElementById('botonContinuarCompra');
+    botonContinuarCompra.innerHTML = `<button type="button" class="btn btn-info" id="botonContinuarCompra">Continuar compra</button>`;
 }
 
 if (carrito.length === 0) {
@@ -58,7 +60,6 @@ function limpiarPantalla() {
 function actualizarPantalla() {
     const respuesta = renderizarCarrito();
     cartList = respuesta.carritoHTML;
-    console.log(cartList);
     const mostrarCarrito = document.getElementById('tablaCarrito');
     mostrarCarrito.innerHTML = cartList;
     totalPedido = document.getElementById('totalPedido');

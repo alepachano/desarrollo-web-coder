@@ -32,7 +32,11 @@
 
 .button-incremento-decremento {
   border: none;
-  background-color: #ffffff; }
+  background-color: #13c4d1;
+  color: #ffffff;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px; }
 
 * {
   font-family: "Raleway", sans-serif; }
