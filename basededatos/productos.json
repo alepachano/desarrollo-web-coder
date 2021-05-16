@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "nombre": "Harina c/polvos",
+    "descripcion": "10 unidades x 1Kg",
+    "categoria": "ingredientes",
+    "precio": 9000,
+    "imagen": "./imagenes/harina.jpg",
+    "stock": 100,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 2,
+    "nombre": "Mantequilla s/sal",
+    "descripcion": "12 unidades x 250g",
+    "categoria": "ingredientes",
+    "precio": 20000,
+    "imagen": "./imagenes/mantequilla.jpg",
+    "stock": 200,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 3,
+    "nombre": "Chips de chocolate",
+    "descripcion": "12 unidades x 200g",
+    "categoria": "ingredientes",
+    "precio": 8000,
+    "imagen": "./imagenes/chips-chocolate.jpg",
+    "stock": 40,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 4,
+    "nombre": "Chocolate Caravella",
+    "descripcion": "10 unidades x 1Kg",
+    "categoria": "ingredientes",
+    "precio": 9000,
+    "imagen": "./imagenes/cobertura.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 5,
+    "nombre": "Pack de esencias",
+    "descripcion": "4 unidades x 400ml",
+    "categoria": "ingredientes",
+    "precio": 7000,
+    "imagen": "./imagenes/esencia.jpg",
+    "stock": 10,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 6,
+    "nombre": "Manjar",
+    "descripcion": "20 unidades x 100g",
+    "categoria": "ingredientes",
+    "precio": 12500,
+    "imagen": "./imagenes/manjar.jpg",
+    "stock": 50,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 7,
+    "nombre": "Chocolate Callebaut",
+    "descripcion": "10 unidades x 1Kg",
+    "categoria": "ingredientes",
+    "precio": 10000,
+    "imagen": "./imagenes/callebaut.jpg",
+    "stock": 25,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 8,
+    "nombre": "Nutella",
+    "descripcion": "Presentación de 3 kg",
+    "categoria": "ingredientes",
+    "precio": 12000,
+    "imagen": "./imagenes/nutella.jpg",
+    "stock": 55,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 9,
+    "nombre": "Perlas nacaradas",
+    "descripcion": "Contenido neto: 200g",
+    "categoria": "decoracion",
+    "precio": 3000,
+    "imagen": "./imagenes/perlas-nacaradas.jpg",
+    "stock": 30,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 10,
+    "nombre": "Alisador de tortas",
+    "descripcion": "Ancho: 10cm alto: 30cm",
+    "categoria": "decoracion",
+    "precio": 4500,
+    "imagen": "./imagenes/alisador-1.jpg",
+    "stock": 60,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 11,
+    "nombre": "Base giratoria ajustable",
+    "descripcion": "30 cm de diámetro",
+    "categoria": "decoracion",
+    "precio": 15000,
+    "imagen": "./imagenes/base-giratoria-ajustable.jpg",
+    "stock": 45,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 12,
+    "nombre": "Espátula universal",
+    "descripcion": "Material: silicona",
+    "categoria": "decoracion",
+    "precio": 6000,
+    "imagen": "./imagenes/espatula-universal.jpg",
+    "stock": 55,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 13,
+    "nombre": "Rejilla de enfriamiento",
+    "descripcion": "Dimensiones: 60x30cm",
+    "categoria": "decoracion",
+    "precio": 11000,
+    "imagen": "./imagenes/rejilla-enfriamiento.jpg",
+    "stock": 35,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 14,
+    "nombre": "Sprinkles de color",
+    "descripcion": "Contenido neto: 200g",
+    "categoria": "decoracion",
+    "precio": 6000,
+    "imagen": "./imagenes/sprinkles-candy.jpg",
+    "stock": 32,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 15,
+    "nombre": "Molde para cupcakes",
+    "descripcion": "Capacidad: 12 unidades",
+    "categoria": "decoracion",
+    "precio": 10000,
+    "imagen": "./imagenes/molde-24-cupcakes.jpg",
+    "stock": 28,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 16,
+    "nombre": "Mangas desechables",
+    "descripcion": "Cantidad: 12 unidades",
+    "categoria": "decoracion",
+    "precio": 3000,
+    "imagen": "./imagenes/mangas-desechables.jpg",
+    "stock": 80,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 17,
+    "nombre": "Prensa de galletas",
+    "descripcion": "12 formas diferentes",
+    "categoria": "decoracion",
+    "precio": 6000,
+    "imagen": "./imagenes/prensa-galletas.jpg",
+    "stock": 35,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 18,
+    "nombre": "Caja de colorantes",
+    "descripcion": "12 unidades de colores diferentes",
+    "categoria": "decoracion",
+    "precio": 10000,
+    "imagen": "./imagenes/caja-colorantes.jpg",
+    "stock": 30,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 19,
+    "nombre": "Set de boquillas",
+    "descripcion": "Set de 55 boquillas diferentes",
+    "categoria": "decoracion",
+    "precio": 18000,
+    "imagen": "./imagenes/juego-55-boquillas.jpg",
+    "stock": 25,
+    "cantidadCompra": 0 
+  },
+  {
+    "id": 20,
+    "nombre": "Cortador para galletas",
+    "descripcion": "letras L O V E",
+    "categoria": "decoracion",
+    "precio": 6000,
+    "imagen": "./imagenes/cortador-love.jpg",
+    "stock": 30,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 21,
+    "nombre": "Cupcakes",
+    "descripcion": "24 unidades decorados del color de preferencia",
+    "categoria": "candybar",
+    "precio": 22000,
+    "imagen": "./imagenes/gender-reveal.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 22,
+    "nombre": "Mini cupcakes",
+    "descripcion": "24 unidades decorados del color de preferencia",
+    "categoria": "candybar",
+    "precio": 12000,
+    "imagen": "./imagenes/mini-cupcakes-pink.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 23,
+    "nombre": "Pie de limón",
+    "descripcion": "12 unidades x 50ml",
+    "categoria": "candybar",
+    "precio": 9000,
+    "imagen": "./imagenes/pie-limon.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 24,
+    "nombre": "Trufas de chocolate",
+    "descripcion": "24 unidades decoradas",
+    "categoria": "candybar",
+    "precio": 10000,
+    "imagen": "./imagenes/trufas.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 25,
+    "nombre": "Cheesecake de oreo",
+    "descripcion": "12 unidades x 50ml",
+    "categoria": "candybar",
+    "precio": 11000,
+    "imagen": "./imagenes/shot-oreo.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 26,
+    "nombre": "Cheesecake de frutilla",
+    "descripcion": "12 unidades x 50ml",
+    "categoria": "candybar",
+    "precio": 10000,
+    "imagen": "./imagenes/cheesecake-frutilla.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 27,
+    "nombre": "Trufas multicolor",
+    "descripcion": "24 unidades decoradas",
+    "categoria": "candybar",
+    "precio": 10000,
+    "imagen": "./imagenes/trufas-multicolor.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 28,
+    "nombre": "Mini-brownies",
+    "descripcion": "24 unidades decoradas",
+    "categoria": "candybar",
+    "precio": 15000,
+    "imagen": "./imagenes/mini-brownies.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 29,
+    "nombre": "Torta de Zanahoria",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 22000,
+    "imagen": "./imagenes/zanahoria.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 30,
+    "nombre": "Torta vainilla-manjar",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 24000,
+    "imagen": "./imagenes/capitas.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 31,
+    "nombre": "Torta red velvet",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 24000,
+    "imagen": "./imagenes/torta-red-velvet-clasica.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 32,
+    "nombre": "Torta de Oreo",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 20000,
+    "imagen": "./imagenes/oreo.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 33,
+    "nombre": "Torta de Trufas",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 24500,
+    "imagen": "./imagenes/torta-trufas.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 34,
+    "nombre": "Torta choco-vainilla",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 22000,
+    "imagen": "./imagenes/vainilla-cake.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 35,
+    "nombre": "Torta para revelación de género",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 30000,
+    "imagen": "./imagenes/torta-gender-reveal.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 36,
+    "nombre": "Torta ganache de chocolate",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-clasicas",
+    "precio": 25000,
+    "imagen": "./imagenes/chocolate-cake.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 37,
+    "nombre": "Cookie Monster",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/torta-cookie-monster-2.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 38,
+    "nombre": "Torta sandía",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/watermelon-cake.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 39,
+    "nombre": "Torta Minions",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/minions.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 40,
+    "nombre": "Torta de matrimonio",
+    "descripcion": "45 - 60 porciones",
+    "categoria": "tortas-premium",
+    "precio": 60000,
+    "imagen": "./imagenes/torta-rosa-boda.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 41,
+    "nombre": "Torta One: azul",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/roses-cake-blue.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 42,
+    "nombre": "Torta One: rosa",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/one-pink.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 43,
+    "nombre": "Torta Sonic",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/sonic.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 44,
+    "nombre": "Torta sweet pink",
+    "descripcion": "12-15 porciones",
+    "categoria": "tortas-premium",
+    "precio": 25000,
+    "imagen": "./imagenes/sweet-pink.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 45,
+    "nombre": "Matrimonio half-naked",
+    "descripcion": "30-40 porciones",
+    "categoria": "tortas-premium",
+    "precio": 50000,
+    "imagen": "./imagenes/wedding.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 46,
+    "nombre": "Dripcake rosas",
+    "descripcion": "15-20 porciones",
+    "categoria": "tortas-premium",
+    "precio": 30000,
+    "imagen": "./imagenes/roses.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 47,
+    "nombre": "Torta Barcelona FC",
+    "descripcion": "10-12 porciones",
+    "categoria": "tortas-premium",
+    "precio": 26000,
+    "imagen": "./imagenes/barca.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  },
+  {
+    "id": 48,
+    "nombre": "Torta Real Madrid FC",
+    "descripcion": "10-12 porciones",
+    "categoria": "tortas-premium",
+    "precio": 26000,
+    "imagen": "./imagenes/real-madrid.jpg",
+    "stock": 20,
+    "cantidadCompra": 0
+  }
+]

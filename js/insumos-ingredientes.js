@@ -34,6 +34,7 @@ function inicializarDatos() {
     seccionIngredientes.push(new Producto (8, "Nutella", "Presentación de 3 kg", 12000, "./imagenes/nutella.jpg", 55, 0));
 }
 
+
 // CARDS
 function renderizarProductos() {
     for (let i=0; i<seccionIngredientes.length; i++) {
