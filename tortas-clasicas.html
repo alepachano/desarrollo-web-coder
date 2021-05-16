@@ -42,20 +42,15 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="index.html">Inicio</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link text-white dropdown-toggle" data-toggle="dropdown">Tortas y Postres</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="tortas-clasicas.html">Clásicas</a>
-                                            <a class="dropdown-item" href="tortas-personalizadas.html">Personalizadas</a>
-                                            <a class="dropdown-item" href="postres-candybar.html">Candybar</a>
-                                        </div>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="tortas-clasicas.html">Tortas y Postres</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link text-white dropdown-toggle" data-toggle="dropdown">Insumos de repostería</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="insumos-ingredientes.html">Ingredientes</a>
-                                            <a class="dropdown-item" href="insumos-decoracion.html">Decoración</a>
-                                        </div>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="insumos-ingredientes.html">Ingredientes</a>
+                                        <a class="dropdown-item" href="insumos-decoracion.html">Decoración</a>
+                                    </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="conocenos.html">Conócenos</a>
@@ -78,57 +73,27 @@
         
         <main>
             <div class="container">
-                <div class="mt-3 mb-5">
-                    <h2 class="colorTitulos">Tortas / Pasteles Clásicos</h2>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\zanahoria.jpg" alt="torta de zanahoria">
-                        <p><strong>Torta de Zanahoria</strong></p>
-                        <p>12-15 porciones</p>
-                        <p>CLP 22.000</p>
+                <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="tortasClasicas-tab" data-toggle="tab" href="#mostrarTortasClasicas" role="tab" aria-controls="home" aria-selected="true">Tortas clásicas</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tortasPremium-tab" data-toggle="tab" href="#mostrarTortasPremium" role="tab" aria-controls="profile" aria-selected="false">Tortas Premium</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="postresCandybar-tab" data-toggle="tab" href="#mostrarPostresCandybar" role="tab" aria-controls="contact" aria-selected="false">Postres</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="tortasClasicas-tab" id="mostrarTortasClasicas">
+                        <div class="row" id="tortasClasicas"></div>    
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\capitas.jpg" alt="torta de vainilla con capas de manjar">
-                        <p><strong>Torta vainilla-manjar</strong></p>
-                        <p>12-15 porciones</p>
-                        <p>CLP 24.000</p>
+                    <div class="tab-pane fade" role="tabpanel" aria-labelledby="tortasPremium-tab" id="mostrarTortasPremium">
+                        <div class="row" id="tortasPremium"></div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\torta-red-velvet-clasica.jpg" alt="torta red velvet clasica">
-                        <p><strong>Torta red velvet clásica</strong></p>
-                        <p>12-15 porciones</p>
-                        <p>CLP 24.000</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\oreo.jpg" alt="torta de oreo">
-                        <p><strong>Torta de Oreo</strong></p>
-                        <p>12-15 porciones</p>
-                        <p>CLP 20.000</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\torta-trufas.jpg" alt="torta de trufas">
-                        <p><strong>Torta de Trufas</strong></p>
-                        <p>12-15 porciones</p>
-                        <p>CLP 24.500</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\vainilla-cake.jpg" alt="torta de vainilla cubierta de chocolate">
-                        <p><strong>Torta choco-vainilla</strong></p>
-                        <p>15-20 porciones</p>
-                        <p>CLP 22.000</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\torta-gender-reveal.jpg" alt="torta para revelacion de genero de bebe">
-                        <p><strong>Torta para revelación de sexo</strong></p>
-                        <p>15-20 porciones</p>
-                        <p>CLP 30.000</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mb-5">
-                        <img class="img-producto rounded mb-3" src="imagenes\chocolate-cake.jpg" alt="torta ganache de chocolate">
-                        <p><strong>Torta ganache de chocolate</strong></p>
-                        <p>12-15 porciones</p>
-                        <p>CLP 25.000</p>
+                    <div class="tab-pane fade" role="tabpanel" aria-labelledby="postresCandybar-tab" id="mostrarPostresCandybar">
+                        <div class="row" id="postresCandybar"></div>
                     </div>
                 </div>
             </div>
@@ -196,5 +161,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- PLANETA DELI -->
+        <script type="text/javascript" src="js/tortas-y-postres.js"></script>
     </body>
 </html>

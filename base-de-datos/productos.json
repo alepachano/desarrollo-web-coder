@@ -202,7 +202,7 @@
   {
     "id": 21,
     "nombre": "Cupcakes",
-    "descripcion": "24 unidades decorados del color de preferencia",
+    "descripcion": "24 unidades decorados",
     "categoria": "candybar",
     "precio": 22000,
     "imagen": "./imagenes/gender-reveal.jpg",
@@ -212,7 +212,7 @@
   {
     "id": 22,
     "nombre": "Mini cupcakes",
-    "descripcion": "24 unidades decorados del color de preferencia",
+    "descripcion": "24 unidades decorados",
     "categoria": "candybar",
     "precio": 12000,
     "imagen": "./imagenes/mini-cupcakes-pink.jpg",
@@ -341,7 +341,7 @@
   },
   {
     "id": 35,
-    "nombre": "Torta para revelación de género",
+    "nombre": "Torta gender reveal",
     "descripcion": "15-20 porciones",
     "categoria": "tortas-clasicas",
     "precio": 30000,
