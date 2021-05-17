@@ -33,14 +33,14 @@ function buscarProductosEnBaseDeDatos() {
 
 productos = buscarProductosEnBaseDeDatos();
 
-// FUNCION CARDS 
+// FUNCION PARA MOSTRAR LAS CARDS 
 function renderizarProductos(categoria){
     let cards = "";
     let productosAMostrar = productos.filter(elemento => elemento.categoria === categoria);
     productosAMostrar.forEach(element => {
         cards += `
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-            <div class="card mb-5">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mt-5">
+            <div class="card mb-3">
                 <img src=${element.imagen} class="card-img-top propiedades-card" alt="${element.nombre}">
                 <div class="card-body">
                     <h6 class="card-title">${element.nombre}</h6>
@@ -59,6 +59,8 @@ function renderizarSeccion(categoria){
     seccionTortasClasicas.innerHTML = renderizarProductos(categoria);
 }
 
+renderizarSeccion(categoriaTortasClasicas);
+
 // EVENTOS
 tortasClasicas.addEventListener("click", function(){
     seccionTortasClasicas.innerHTML = renderizarProductos(categoriaTortasClasicas);
@@ -72,4 +74,5 @@ postresCandybar.addEventListener("click", function(){
     seccionPostresCandybar.innerHTML = renderizarProductos(categoriaPostres);
 });
 
-renderizarSeccion(categoriaTortasClasicas);
+
+
