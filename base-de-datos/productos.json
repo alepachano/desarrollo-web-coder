@@ -172,7 +172,7 @@
   {
     "id": 18,
     "nombre": "Caja de colorantes",
-    "descripcion": "12 unidades de colores diferentes",
+    "descripcion": "12 colores diferentes",
     "categoria": "decoracion",
     "precio": 10000,
     "imagen": "./imagenes/caja-colorantes.jpg",
@@ -182,7 +182,7 @@
   {
     "id": 19,
     "nombre": "Set de boquillas",
-    "descripcion": "Set de 55 boquillas diferentes",
+    "descripcion": "55 boquillas diferentes",
     "categoria": "decoracion",
     "precio": 18000,
     "imagen": "./imagenes/juego-55-boquillas.jpg",
@@ -202,7 +202,7 @@
   {
     "id": 21,
     "nombre": "Cupcakes",
-    "descripcion": "24 unidades decorados del color de preferencia",
+    "descripcion": "24 unidades decorados",
     "categoria": "candybar",
     "precio": 22000,
     "imagen": "./imagenes/gender-reveal.jpg",
@@ -212,7 +212,7 @@
   {
     "id": 22,
     "nombre": "Mini cupcakes",
-    "descripcion": "24 unidades decorados del color de preferencia",
+    "descripcion": "24 unidades decorados",
     "categoria": "candybar",
     "precio": 12000,
     "imagen": "./imagenes/mini-cupcakes-pink.jpg",
@@ -341,7 +341,7 @@
   },
   {
     "id": 35,
-    "nombre": "Torta para revelación de género",
+    "nombre": "Torta gender reveal",
     "descripcion": "15-20 porciones",
     "categoria": "tortas-clasicas",
     "precio": 30000,

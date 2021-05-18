@@ -51,7 +51,8 @@ body {
   background-color: #0dceda; }
 
 .nav-item:hover {
-  background-color: #13c4d1; }
+  background-color: #13c4d1;
+  text-decoration: none; }
 
 .colorTitulos {
   color: #0dceda;
