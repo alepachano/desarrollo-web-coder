@@ -172,7 +172,7 @@
   {
     "id": 18,
     "nombre": "Caja de colorantes",
-    "descripcion": "12 unidades de colores diferentes",
+    "descripcion": "12 colores diferentes",
     "categoria": "decoracion",
     "precio": 10000,
     "imagen": "./imagenes/caja-colorantes.jpg",
@@ -182,7 +182,7 @@
   {
     "id": 19,
     "nombre": "Set de boquillas",
-    "descripcion": "Set de 55 boquillas diferentes",
+    "descripcion": "55 boquillas diferentes",
     "categoria": "decoracion",
     "precio": 18000,
     "imagen": "./imagenes/juego-55-boquillas.jpg",

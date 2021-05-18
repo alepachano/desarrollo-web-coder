@@ -1,5 +1,4 @@
 // Evento jQuery al seleccionar el input
-
 var inputForm = $(".form-control");
 var iconCarrito = $("#iconoCarrito");
 
@@ -13,24 +12,7 @@ $(document).ready(function(){
     });
 });
 
-// Evento jQuery al colocar el cursor en el icono del carrito
-
-iconCarrito.mouseenter(function(){
-    $(this).animate({
-        height: "50px",
-        width: "50px"
-    }, 'slow')
-})
-
-iconCarrito.mouseleave(function(){
-    $(this).animate({
-        height: "30px",
-        width: "30px"
-    }, 'fast')
-})
-
 // VALIDACION AL HACER CLICK EN EL BUTTON TYPE SUBMIT "ENVIAR"
-
 let botonEnviar = document.getElementById('enviarFormulario');
 botonEnviar.addEventListener("click", function(){
     let formulario = {
@@ -45,9 +27,13 @@ botonEnviar.addEventListener("click", function(){
     validarCamposTexto(formulario);
 })
 
-// ALERTAS DE VALIDACION
+// FUNCION PARA MODAL DE BOTON 
+function mostrarModal(){
+    $("#miModal").modal("show");
+}
 
-function enviarAlerta(){
+// ALERTAS DE VALIDACION
+function enviarAlertaExitoso(){
     let alertaFormulario = document.getElementById('alertaFormulario');
     alertaFormulario.innerHTML = 
     `<div class="alert alert-success" role="alert">
@@ -58,7 +44,7 @@ function enviarAlerta(){
     </div>`;
 }
 
-function enviarAlertaError (campoFormulario) {
+function enviarAlertaError(campoFormulario) {
     let alertaFormulario = document.getElementById('alertaFormulario');
     alertaFormulario.innerHTML = 
     `<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -70,7 +56,6 @@ function enviarAlertaError (campoFormulario) {
 }
 
 // VALIDACION DE CAMPOS
-
 function validarCamposTexto(formulario){
     if ((formulario.nombre.trim() == null) || (formulario.nombre.trim().length === 0)) {
         enviarAlertaError('nombre');
@@ -87,7 +72,7 @@ function validarCamposTexto(formulario){
     } else if ((formulario.mensaje.trim() == null) || (formulario.mensaje.trim().length === 0)) {
         enviarAlertaError('mensaje');
     } else {
-        enviarAlerta();
+        enviarAlertaExitoso();
+        mostrarModal();
     }
 }
-

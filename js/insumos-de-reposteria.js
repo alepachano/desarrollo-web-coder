@@ -3,17 +3,14 @@ let productos = [];
 let carrito = [];
 let storageValores = localStorage.storageCarrito;
 
-let categoriaTortasClasicas = 'tortas-clasicas';
-let categoriaTortasPremium = 'tortas-premium';
-let categoriaPostres = 'candybar'; 
+let categoriaIngredientes = 'ingredientes';
+let categoriaDecoracion = 'decoracion';
 
-let tabTortasClasicas = document.getElementById('tortasClasicas-tab');
-let tabTortasPremium = document.getElementById('tortasPremium-tab');
-let tabPostresCandybar = document.getElementById('postresCandybar-tab');
+let tabIngredientes = document.getElementById('ingredientes-tab');
+let tabDecoracion = document.getElementById('decoracion-tab');
 
-let seccionTortasClasicas = document.getElementById('tortasClasicas');
-let seccionTortasPremium = document.getElementById('tortasPremium');
-let seccionPostresCandybar = document.getElementById('postresCandybar');
+let seccionIngredientes = document.getElementById('seccionIngredientes');
+let seccionDecoracion = document.getElementById('seccionDecoracion');
 
 // Inicializar DATA
 function buscarProductosEnBaseDeDatos() {
@@ -73,7 +70,7 @@ function renderizarSeccion(seccion, categoria) {
 }
 
 // LLAMAR FUNCIONES 
-renderizarSeccion(seccionTortasClasicas, categoriaTortasClasicas);
+renderizarSeccion(seccionIngredientes, categoriaIngredientes);
 validarLocalStorage();
 
 // IDENTIFICA ID DEL PRODUCTO Y AGREGA EL ID CARRITO
@@ -113,14 +110,12 @@ function agregarAlCarrito(producto) {
     }
 }
 
-function eventoClick(tab, seccion, nombreCategoria){
+function eventoClick(tab, seccion, nombreCategoria) {
     tab.addEventListener("click", function(){
         seccion.innerHTML = mostrarProductos(nombreCategoria);
     });
 }
 
-// EVENTOS SECCION "TORTAS Y POSTRES"
-eventoClick(tabTortasClasicas, seccionTortasClasicas, categoriaTortasClasicas);
-eventoClick(tabTortasPremium, seccionTortasPremium, categoriaTortasPremium);
-eventoClick(tabPostresCandybar, seccionPostresCandybar, categoriaPostres);
-
+//EVENTOS SECCION "INSUMOS DE REPOSTERIA"
+eventoClick(tabIngredientes, seccionIngredientes, categoriaIngredientes);
+eventoClick(tabDecoracion, seccionDecoracion, categoriaDecoracion);
