@@ -15,6 +15,20 @@ let seccionTortasClasicas = document.getElementById('tortasClasicas');
 let seccionTortasPremium = document.getElementById('tortasPremium');
 let seccionPostresCandybar = document.getElementById('postresCandybar');
 
+// OBJETOS
+class Product {
+    constructor(id, nombre, descripcion, categoria, precio, imagen, stock, cantidadCompra) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.stock = stock; 
+        this.cantidadCompra = cantidadCompra;
+    }
+}
+
 // Inicializar DATA
 function buscarProductosEnBaseDeDatos() {
     let productosBD = [];
@@ -24,7 +38,19 @@ function buscarProductosEnBaseDeDatos() {
         url: "base-de-datos/productos.json",
         dataType: "json",
         success: (data) => {
-            productosBD = data;
+            data.forEach((product) => {
+                let newProduct = new Product(
+                    product.id,
+                    product.nombre,
+                    product.descripcion,
+                    product.categoria,
+                    product.precio,
+                    product.imagen,
+                    product.stock,
+                    product.cantidadCompra
+                );
+                productosBD.push(newProduct);
+            });
         },
         error: (error) => {
             console.log('Error AJAX: ', error);

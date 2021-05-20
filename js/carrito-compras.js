@@ -6,7 +6,7 @@ if (localStorage && localStorage.storageCarrito) {
     carrito = JSON.parse(localStorage.storageCarrito);
     console.log(carrito);
     let botonContinuarCompra = $('#botonContinuarCompra');
-    botonContinuarCompra.html(`<button type="button" class="btn btn-info" id="botonContinuarCompra">Continuar compra</button>`);
+    botonContinuarCompra.html(`<button type="button" class="btn btn-info" id="botonContinuarCompra" onclick="mercadoPago()">Continuar compra</button>`);
 }
 
 if (carrito.length === 0) {
@@ -68,3 +68,33 @@ function actualizarPantalla() {
 }
 
 actualizarPantalla();
+
+// API MERCADO PAGO
+async function mercadoPago() {
+    const items = [];
+    carrito.forEach((element) => {
+        items.push({
+            title: element.nombre,
+            description: element.descripcion,
+            picture_url: element.imagen,
+            category_id: element.categoria,
+            quantity: element.cantidadCompra,
+            currency_id: "CLP",
+            unit_price: element.precio
+        });
+    });
+    const json = {
+        items: items,
+    };
+    console.log('items', items);
+
+    let data = await fetch("https://api.mercadopago.com/checkout/preferences", {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer TEST-824207342989446-051521-a447416bb4ec99211f1f5dba129648dc-335000586'
+        },
+        body: JSON.stringify(json)
+    });
+    let responseMP = await data.json();
+    window.open(responseMP.init_point);
+}; 
