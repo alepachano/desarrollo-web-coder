@@ -2,19 +2,19 @@ let carrito = [];
 let cartList = "";
 let totalCompra = 0;
 
-if (localStorage && localStorage.storageCarrito) {
-    carrito = JSON.parse(localStorage.storageCarrito);
-    console.log(carrito);
-    let botonContinuarCompra = $('#botonContinuarCompra');
-    botonContinuarCompra.html(`<button type="button" class="btn btn-info" id="botonContinuarCompra" onclick="mercadoPago()">Continuar compra</button>`);
-}
-
-if (carrito.length === 0) {
-    const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
-    alertaCarritoVacio.innerHTML =
-    `<div class="mt-3 alert alert-danger" role="alert">
-        ¡Tu carrito de compras se encuentra vacio!
-    </div>`;
+function validarLocalStorage(){
+    if (localStorage && localStorage.storageCarrito) {
+        carrito = JSON.parse(localStorage.storageCarrito);
+        let botonesOpcionesCarrito = $('#botonesOpcionesCarrito');
+        botonesOpcionesCarrito.html(`<button type="button" class="btn btn-info" onclick="vaciarCarrito()">Vaciar carrito</button>
+                                     <button type="button" class="btn btn-info" onclick="mercadoPago()">Continuar compra</button>`);
+    } else if (carrito.length === 0) {
+            const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
+            alertaCarritoVacio.innerHTML =
+            `<div class="mt-3 alert alert-danger" role="alert">
+                ¡Tu carrito de compras se encuentra vacio!
+            </div>`;
+    }
 }
 
 function actualizarCantidad(identificador, operacion) {
@@ -59,14 +59,23 @@ function limpiarPantalla() {
 
 function actualizarPantalla() {
     const respuesta = renderizarCarrito();
+    if (respuesta && respuesta.carritoHTML === '') {
+        return;
+    }
     cartList = respuesta.carritoHTML;
     const mostrarCarrito = document.getElementById('tablaCarrito');
     mostrarCarrito.innerHTML = cartList;
     totalPedido = document.getElementById('totalPedido');
-    console.log('imprimiendo card list');
     totalPedido.innerHTML = `${respuesta.totalCompra}`;
 }
 
+function vaciarCarrito(){
+    localStorage.clear();
+    carrito = [];
+    validarLocalStorage();
+}
+
+validarLocalStorage();
 actualizarPantalla();
 
 // API MERCADO PAGO

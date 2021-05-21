@@ -89,7 +89,6 @@ const validarLocalStorage = () => {
         console.log('el storage se encuentra vacio');
     } else {
         carrito = JSON.parse(storageValores);
-        console.log('Local storage: ', carrito);
     }
 }
 
@@ -134,7 +133,7 @@ function agregarAlCarrito(producto) {
     } else {
         producto.cantidadCompra = 1;
         carrito.push(producto);
-        console.log('carrito: ', carrito);
+        console.log('local storage', carrito);
         localStorage.setItem('storageCarrito', JSON.stringify(carrito));
     }
 }
