@@ -38,6 +38,10 @@
   margin-right: 10px;
   font-size: 20px; }
 
+.deleteItem {
+  background-color: #ffffff;
+  border: none; }
+
 * {
   font-family: "Raleway", sans-serif; }
 
