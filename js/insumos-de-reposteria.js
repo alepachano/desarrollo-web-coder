@@ -86,7 +86,6 @@ const validarLocalStorage = () => {
         console.log('el storage se encuentra vacio');
     } else {
         carrito = JSON.parse(storageValores);
-        console.log('Local storage: ', carrito);
     }
 }
 
