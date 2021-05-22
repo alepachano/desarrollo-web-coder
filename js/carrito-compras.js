@@ -19,10 +19,18 @@ function validarLocalStorage(){
 
 function actualizarCantidad(identificador, operacion) {
     let producto = carrito.find((producto) => producto.id === identificador);
+    let botonDecremento = document.getElementById("decremento");
     if (operacion === 'suma') {
         producto.cantidadCompra += 1; 
+        console.log('se suma');
     } else {
-        producto.cantidadCompra -= 1;
+        if (producto.cantidadCompra === 1) {
+            botonDecremento.disabled = true;
+            console.log('se deshabilita boton de decremento');
+        } else {
+            producto.cantidadCompra -= 1;
+            console.log('se resta');
+        }
     }
     limpiarPantalla();
     actualizarPantalla();
@@ -40,9 +48,9 @@ function renderizarCarrito() {
             <th scope="row">${index+1}</th>
             <td>${item.nombre}</td>
             <td>
-                <button class="button-incremento-decremento decrementoProducto" onclick="actualizarCantidad(${item.id}, 'resta')" type="button">-</button>
+                <button class="button-incremento-decremento decrementoProducto" id="decremento" onclick="actualizarCantidad(${item.id}, 'resta')" type="button">-</button>
                 <label>${item.cantidadCompra}</label>
-                <button class="button-incremento-decremento incremento-producto" onclick="actualizarCantidad(${item.id}, 'suma')" type="button">+</button>
+                <button class="button-incremento-decremento incremento-producto" id="incremento" onclick="actualizarCantidad(${item.id}, 'suma')" type="button">+</button>
             </td>
             <td>${precioProducto}</td>
             <td><button class="deleteItem" onclick="eliminarProducto(${index})">
