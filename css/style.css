@@ -34,13 +34,18 @@
   border: none;
   background-color: #13c4d1;
   color: #ffffff;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
   font-size: 20px; }
 
 .deleteItem {
   background-color: #ffffff;
   border: none; }
+
+.labelCantidad {
+  height: 20px;
+  width: 20px;
+  text-align: center; }
 
 * {
   font-family: "Raleway", sans-serif; }

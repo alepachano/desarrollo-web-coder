@@ -49,7 +49,7 @@ function renderizarCarrito() {
             <td>${item.nombre}</td>
             <td>
                 <button class="button-incremento-decremento decrementoProducto" id="decremento" onclick="actualizarCantidad(${item.id}, 'resta')" type="button">-</button>
-                <label>${item.cantidadCompra}</label>
+                <label class="labelCantidad">${item.cantidadCompra}</label>
                 <button class="button-incremento-decremento incremento-producto" id="incremento" onclick="actualizarCantidad(${item.id}, 'suma')" type="button">+</button>
             </td>
             <td>${precioProducto}</td>

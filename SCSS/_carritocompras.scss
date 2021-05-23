@@ -2,12 +2,18 @@
     border: none;
     background-color: $azul-terciario;
     color: $blanco;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
     font-size: 20px;
 }
 
 .deleteItem {
     background-color: $blanco;
     border: none;
+}
+
+.labelCantidad {
+    height: 20px;
+    width: 20px;
+    text-align: center;
 }
