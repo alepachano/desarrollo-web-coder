@@ -1,16 +1,12 @@
-%tamaño-de-imagenes-catalogo {
-    width: 200px;
-    height: 200px;
-}
-
-%transicion-catalogo {
-    transition: 1s;
-    transform: scale(1.2);
-}
-
 %tamano-imagen-card {
     width: 230px;
     height: 230px;
     display: block;
     margin: auto;
+}
+
+%estilo-categorias {
+    background-color: $azul-secundario;
+    color: $blanco;
+    font-weight: bold;
 }

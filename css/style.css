@@ -11,24 +11,23 @@
     width: 180px;
     height: 180px; } }
 
-.input-cantidad {
-  width: 50px;
-  height: 40px;
-  margin-right: 5px; }
+a.colorCategoria.nav-link {
+  color: black; }
 
-.img-producto, .img-insumo {
-  width: 200px;
-  height: 200px; }
-
-.img-producto:hover, .img-insumo:hover {
-  transition: 1s;
-  transform: scale(1.2); }
+a.colorCategoria.nav-link:hover {
+  color: black;
+  background-color: #dff4f3; }
 
 .propiedades-card {
   width: 230px;
   height: 230px;
   display: block;
   margin: auto; }
+
+.colorCategoria.nav-link.active {
+  background-color: #0b8992;
+  color: #ffffff;
+  font-weight: bold; }
 
 .button-incremento-decremento {
   border: none;
