@@ -19,14 +19,35 @@ function validarLocalStorage(){
 
 function actualizarCantidad(identificador, operacion) {
     let producto = carrito.find((producto) => producto.id === identificador);
+    let botonIncremento = document.getElementById("incremento");
     let botonDecremento = document.getElementById("decremento");
+    const alerta = document.getElementById('alerta');
     if (operacion === 'suma') {
-        producto.cantidadCompra += 1; 
-        console.log('se suma');
+        if (producto.cantidadCompra < 20) {
+            producto.cantidadCompra += 1; 
+            console.log('se suma');
+        } else {
+            botonIncremento.disabled = true;
+            console.log('se deshabilita boton de incremento');
+            alerta.innerHTML =
+            `<div class="mt-2 alert alert-danger" role="alert">
+                ¡Puedes ingresar máximo 20 unidades por producto!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
+        }
     } else {
         if (producto.cantidadCompra === 1) {
             botonDecremento.disabled = true;
             console.log('se deshabilita boton de decremento');
+            alerta.innerHTML =
+            `<div class="mt-2 alert alert-danger" role="alert">
+                ¡La cantidad mínima por producto es 1!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
         } else {
             producto.cantidadCompra -= 1;
             console.log('se resta');
