@@ -86,7 +86,6 @@ function mostrarProductos(categoria){
 const validarLocalStorage = () => {
     if(storageValores === undefined) {
         carrito = [];
-        console.log('el storage se encuentra vacio');
     } else {
         carrito = JSON.parse(storageValores);
     }
@@ -103,7 +102,6 @@ validarLocalStorage();
 
 // IDENTIFICA ID DEL PRODUCTO Y AGREGA EL ID CARRITO
 function identificarId(identificadorProducto) {
-    console.log('id: ' + identificadorProducto);
     const productoBuscado = productos.find((producto) => producto.id === identificadorProducto);
     agregarAlCarrito(productoBuscado);
     const alerta = document.getElementById('alertaAgregarAlCarrito');
@@ -125,15 +123,12 @@ function validarProductoCarrito (identificadorProducto) {
 // AGREGAR AL CARRITO
 function agregarAlCarrito(producto) {
     const productoCarrito = validarProductoCarrito(producto.id);
-    console.log('validando si existe en el carrito: ', productoCarrito);
     if (productoCarrito) {
         productoCarrito.cantidadCompra += 1; 
-        console.log('carrito: ', carrito);
         localStorage.setItem('storageCarrito', JSON.stringify(carrito));
     } else {
         producto.cantidadCompra = 1;
         carrito.push(producto);
-        console.log('local storage', carrito);
         localStorage.setItem('storageCarrito', JSON.stringify(carrito));
     }
 }
