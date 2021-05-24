@@ -45,79 +45,27 @@
                 </div>
                 <ul class="nav nav-tabs nav-fill mt-3" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="colorCategoria nav-link active" id="ingredientes-tab" data-toggle="tab" href="#mostrarIngredientes" role="tab" aria-controls="home" aria-selected="true">Ingredientes</a>
+                        <a class="colorCategoria nav-link active" id="decoracion-tab" data-toggle="tab" href="#mostrarDecoracion" role="tab" aria-controls="decoracion" aria-selected="true">Decoración</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="colorCategoria nav-link" id="decoracion-tab" data-toggle="tab" href="#mostrarDecoracion" role="tab" aria-controls="profile" aria-selected="false">Decoración</a>
+                        <a class="colorCategoria nav-link" id="ingredientes-tab" data-toggle="tab" href="#mostrarIngredientes" role="tab" aria-controls="ingredientes" aria-selected="false">Ingredientes</a>
                     </li>
                 </ul>
 
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="ingredientes-tab" id="mostrarIngredientes">
-                        <div class="row" id="seccionIngredientes"></div>    
-                    </div>
-                    <div class="tab-pane fade" role="tabpanel" aria-labelledby="decoracion-tab" id="mostrarDecoracion">
+                    <div class="tab-pane fade show active " role="tabpanel" aria-labelledby="decoracion-tab" id="mostrarDecoracion">
                         <div class="row" id="seccionDecoracion"></div>
+                    </div>
+                    <div class="tab-pane fade" role="tabpanel" aria-labelledby="ingredientes-tab" id="mostrarIngredientes">
+                        <div class="row" id="seccionIngredientes"></div>    
                     </div>
                 </div>
             </div>
         </main>
         
         <footer>
-            <div class="container">        
-                <div class="row w-100 pt-5">
-                    <div class="col-xs-12 col-sm-6 col-md-3 pt-2">
-                        <h4 class="text-center">Planeta Deli</h4>
-                        <p class="text-justify"><small>El lugar donde podrás tener las más ricas tortas, y lo mejor: personalizadas. Además, conseguirás artículos de repostería</small></p>
-                        <h6 class="text-center">¡TODO EN UN MISMO LUGAR!</h6>
-                    </div>
-                    
-                    <div class="col-xs-12 col-sm-6 col-md-3 pt-2">
-                        <h4 class="text-center">Servicio al Cliente</h4>
-                        <ul class="info-adicional">
-                            <li>
-                                <a href="#">Seguimiento de mi pedido</a>
-                            </li>
-                            <li>
-                                <a href="#">Preguntas frecuentes</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-3 pt-2">
-                        <h4 class="text-center">Contáctanos</h4>
-                        <div class="row">
-                            <p class="w-100 text-center"><small>¡y síguenos en nuestras redes sociales!</small></p>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="text-center">
-                                <a href="https://www.instagram.com/planetadeli" target="_blank"><img class="imgRedesSociales rounded" src="imagenes\logo-instagram.png" alt="logo instagram"></a>
-                            </div>
-                            <div class="col-auto text-center">
-                                <a href="https://www.facebook.com/planetadeli" target="_blank"><img class="imgRedesSociales rounded" src="imagenes\logo-facebook.png" alt="logo facebook"></a>
-                            </div>
-                            <div class="text-center">
-                                <a href="https://wa.link/hrlw0l" target="_blank"><img class="imgRedesSociales rounded" src="imagenes\logo-whatsapp.png" alt="logo whatsapp"></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xs-12 col-sm-6 col-md-3 pt-2">
-                        <h4 class="text-center">Envíos</h4>
-                        <div class="row justify-content-center">
-                            <img class="transport" src="imagenes\envios.png" alt="camioneta de envios">
-                        </div>
-                        <div class="row">
-                            <p class="w-100 text-center"><small>Realizamos envíos a toda la Región Metropolitana</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row pt-3 pb-3">
-                    <div class="col-xs-12 col-sm-12 text-center">
-                        <p class="text-center"><small>COPYRIGHT © 2021. Planeta Deli</small></p>
-                    </div>
-                </div>
+            <div class="container" id="footer">        
+                <!-- Aquí va el footer -->
             </div>
         </footer>
 
@@ -128,6 +76,7 @@
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <!-- PLANETA DELI -->
         <script src="js/menu/include.js"></script>
+        <script src="js/footer/include.js"></script>
         <script src="js/insumos-de-reposteria.js"></script>
     </body>
 </html>
