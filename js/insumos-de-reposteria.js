@@ -93,17 +93,13 @@ function renderizarSeccion(seccion, categoria) {
     seccion.innerHTML = mostrarProductos(categoria);
 }
 
-// LLAMAR FUNCIONES 
-renderizarSeccion(seccionIngredientes, categoriaIngredientes);
-validarLocalStorage();
-
 // IDENTIFICA ID DEL PRODUCTO Y AGREGA EL ID CARRITO
 function identificarId(identificadorProducto) {
     const productoBuscado = productos.find((producto) => producto.id === identificadorProducto);
     agregarAlCarrito(productoBuscado);
     const alerta = document.getElementById('alertaAgregarAlCarrito');
     alerta.innerHTML = 
-        `<div class="mt-3 alert alert-success" role="alert">
+        `<div class="mt-2 alert alert-success" role="alert">
             ¡Se ha agregado un producto al carrito de compras!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -130,12 +126,17 @@ function agregarAlCarrito(producto) {
     }
 }
 
+// EVENTO: click sobre la categoria
 function eventoClick(tab, seccion, nombreCategoria) {
     tab.addEventListener("click", function(){
         seccion.innerHTML = mostrarProductos(nombreCategoria);
     });
 }
 
-//EVENTOS SECCION "INSUMOS DE REPOSTERIA"
-eventoClick(tabIngredientes, seccionIngredientes, categoriaIngredientes);
+// EVENTOS SECCION "INSUMOS DE REPOSTERIA"
 eventoClick(tabDecoracion, seccionDecoracion, categoriaDecoracion);
+eventoClick(tabIngredientes, seccionIngredientes, categoriaIngredientes);
+
+// LLAMAR FUNCIONES 
+renderizarSeccion(seccionDecoracion, categoriaDecoracion);
+validarLocalStorage();
