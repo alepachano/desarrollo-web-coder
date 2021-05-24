@@ -2,6 +2,7 @@ let carrito = [];
 let cartList = "";
 let totalCompra = 0;
 
+// VALIDAR EL LOCAL STORAGE
 function validarLocalStorage(){
     if (localStorage && localStorage.storageCarrito) {
         carrito = JSON.parse(localStorage.storageCarrito);
@@ -17,19 +18,37 @@ function validarLocalStorage(){
     }
 }
 
+// INCREMENTAR O DECREMENTAR CANTIDAD DE CADA PRODUCTO. Minimo 1, máximo 20.
 function actualizarCantidad(identificador, operacion) {
     let producto = carrito.find((producto) => producto.id === identificador);
+    let botonIncremento = document.getElementById("incremento");
     let botonDecremento = document.getElementById("decremento");
+    const alerta = document.getElementById('alerta');
     if (operacion === 'suma') {
-        producto.cantidadCompra += 1; 
-        console.log('se suma');
+        if (producto.cantidadCompra < 20) {
+            producto.cantidadCompra += 1; 
+        } else {
+            botonIncremento.disabled = true;
+            alerta.innerHTML =
+            `<div class="mt-2 alert alert-danger" role="alert">
+                ¡Puedes ingresar máximo 20 unidades por producto!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
+        }
     } else {
         if (producto.cantidadCompra === 1) {
             botonDecremento.disabled = true;
-            console.log('se deshabilita boton de decremento');
+            alerta.innerHTML =
+            `<div class="mt-2 alert alert-danger" role="alert">
+                ¡La cantidad mínima por producto es 1!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
         } else {
             producto.cantidadCompra -= 1;
-            console.log('se resta');
         }
     }
     limpiarPantalla();
@@ -37,6 +56,7 @@ function actualizarCantidad(identificador, operacion) {
     localStorage.setItem('storageCarrito', JSON.stringify(carrito));
 }
 
+// MOSTRAR TABLA CON PRODUCTOS DEL CARRITO
 function renderizarCarrito() {
     let carritoHTML = '';
     let calcularTotal = 0;
@@ -49,7 +69,7 @@ function renderizarCarrito() {
             <td>${item.nombre}</td>
             <td>
                 <button class="button-incremento-decremento decrementoProducto" id="decremento" onclick="actualizarCantidad(${item.id}, 'resta')" type="button">-</button>
-                <label>${item.cantidadCompra}</label>
+                <label class="labelCantidad">${item.cantidadCompra}</label>
                 <button class="button-incremento-decremento incremento-producto" id="incremento" onclick="actualizarCantidad(${item.id}, 'suma')" type="button">+</button>
             </td>
             <td>${precioProducto}</td>
@@ -64,6 +84,7 @@ function renderizarCarrito() {
     return { carritoHTML: carritoHTML, totalCompra: calcularTotal };
 }
 
+// LIMPIAR TABLA PARA ACTUALIZAR INFORMACION
 function limpiarPantalla() {
     const mostrarCarrito = document.getElementById('tablaCarrito');
     mostrarCarrito.textContent = '';
@@ -71,6 +92,7 @@ function limpiarPantalla() {
     totalPedido.textContent = '';
 }
 
+// ACTUALIZAR INFORMACION EN LA TABLA
 function actualizarPantalla() {
     const respuesta = renderizarCarrito();
     if (respuesta && respuesta.carritoHTML === '') {
@@ -83,18 +105,21 @@ function actualizarPantalla() {
     totalPedido.innerHTML = `${respuesta.totalCompra}`;
 }
 
+// BOTON VACIAR CARRITO
 function vaciarCarrito(){
     localStorage.clear();
     carrito = [];
     validarLocalStorage();
 }
 
-function eliminarProducto(item) {
+// BOTON ELIMINAR PRODUCTO
+function eliminarProducto(item) { 
     carrito.splice(item, 1);
     localStorage.setItem('storageCarrito', JSON.stringify(carrito));
     limpiarPantalla();
     actualizarPantalla();
     if (carrito.length === 0) {
+        localStorage.clear();
         const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
         alertaCarritoVacio.innerHTML =
         `<div class="mt-3 alert alert-danger" role="alert">
@@ -102,9 +127,6 @@ function eliminarProducto(item) {
         </div>`;
     };
 }
-
-validarLocalStorage();
-actualizarPantalla();
 
 // API MERCADO PAGO
 async function mercadoPago() {
@@ -133,4 +155,15 @@ async function mercadoPago() {
     });
     let responseMP = await data.json();
     window.open(responseMP.init_point);
+
+    //Después de que se realiza el pago, se vacia el carrito y redirecciona al index.
+    // if (data && data.ok) {
+    //     console.log('redireccionar index.html');
+    //     carrito = [];
+    //     localStorage.clear();
+    //     location.href = "./../index.html";
+    // }
 }; 
+
+validarLocalStorage();
+actualizarPantalla();

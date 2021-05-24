@@ -1,0 +1,16 @@
+.colorCategoria.nav-link.active {
+    @extend %estilo-categorias;
+}
+
+a.colorCategoria.nav-link {
+    color: black;
+}
+
+a.colorCategoria.nav-link:hover {
+    color: black;
+    background-color: #dff4f3;
+}
+
+.propiedades-card {
+    @extend %tamano-imagen-card;
+}
