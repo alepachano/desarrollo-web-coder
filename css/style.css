@@ -40,7 +40,9 @@ a.colorCategoria.nav-link:hover {
   border: none;
   background-color: #13c4d1;
   color: #ffffff;
-  font-size: 20px; }
+  font-size: 15px;
+  text-align: center;
+  height: 20px; }
 
 .deleteItem {
   background-color: #ffffff;
