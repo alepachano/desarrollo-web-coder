@@ -69,12 +69,14 @@ function mostrarProductos(categoria){
         cards += `
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center mt-5">
             <div class="card mb-3">
-                <img src=${element.imagen} class="card-img-top propiedades-card" alt="${element.nombre}">
+                <img src=${element.imagen} class="card-img-top img-card" alt="${element.nombre}">
                 <div class="card-body">
                     <h6 class="card-title">${element.nombre}</h6>
                     <p class="card-text">${element.descripcion}</p>
                     <p class="card-text">CLP ${element.precio}</p>
-                    <button type="submit" class="btn btn-info" onclick="identificarId(${element.id})">Agregar al carrito</a>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info" onclick="identificarId(${element.id})">Agregar al carrito</button>
                 </div>
             </div>
         </div>`;
