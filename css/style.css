@@ -18,9 +18,16 @@ a.colorCategoria.nav-link:hover {
   color: black;
   background-color: #dff4f3; }
 
-.propiedades-card {
-  width: 230px;
-  height: 230px;
+.card-body {
+  height: 150px; }
+
+.card-footer {
+  border: none;
+  background-color: #ffffff; }
+
+.img-card {
+  width: 200px;
+  height: 200px;
   display: block;
   margin: auto; }
 

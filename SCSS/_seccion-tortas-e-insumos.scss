@@ -11,6 +11,15 @@ a.colorCategoria.nav-link:hover {
     background-color: #dff4f3;
 }
 
-.propiedades-card {
+.img-card {
     @extend %tamano-imagen-card;
+}
+
+.card-body {
+    height: 150px;
+}
+
+.card-footer {
+    border: none;
+    background-color: #ffffff;
 }
