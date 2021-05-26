@@ -3,14 +3,14 @@ let productos = [];
 let carrito = [];
 let storageValores = localStorage.storageCarrito;
 
-let categoriaIngredientes = 'ingredientes';
 let categoriaDecoracion = 'decoracion';
+let categoriaIngredientes = 'ingredientes';
 
-let tabIngredientes = document.getElementById('ingredientes-tab');
 let tabDecoracion = document.getElementById('decoracion-tab');
+let tabIngredientes = document.getElementById('ingredientes-tab');
 
-let seccionIngredientes = document.getElementById('seccionIngredientes');
 let seccionDecoracion = document.getElementById('seccionDecoracion');
+let seccionIngredientes = document.getElementById('seccionIngredientes');
 
 // Objeto
 class Product {

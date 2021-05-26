@@ -10,11 +10,11 @@ function validarLocalStorage(){
         botonesOpcionesCarrito.html(`<button type="button" class="btn btn-info" onclick="vaciarCarrito()">Vaciar carrito</button>
                                      <button type="button" class="btn btn-info" onclick="mercadoPago()">Continuar compra</button>`);
     } else if (carrito.length === 0) {
-            const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
-            alertaCarritoVacio.innerHTML =
-            `<div class="mt-3 alert alert-danger" role="alert">
-                ¡Tu carrito de compras se encuentra vacio!
-            </div>`;
+        const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
+        alertaCarritoVacio.innerHTML =
+        `<div class="mt-3 alert alert-danger" role="alert">
+            ¡Tu carrito de compras se encuentra vacio!
+        </div>`;
     }
 }
 
