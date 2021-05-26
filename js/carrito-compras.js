@@ -64,7 +64,7 @@ function renderizarCarrito() {
         const precioProducto = item.cantidadCompra * item.precio;
         calcularTotal += precioProducto;
         carritoHTML += 
-        `<tr>
+        `<tr class="tabla-body">
             <th scope="row">${index+1}</th>
             <td>${item.nombre}</td>
             <td>

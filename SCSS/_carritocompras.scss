@@ -2,9 +2,8 @@
     border: none;
     background-color: $azul-terciario;
     color: $blanco;
-    font-size: 15px;
     text-align: center;
-    height: 20px;
+    font-size: 20px;
 }
 
 .deleteItem {
@@ -17,3 +16,13 @@
     width: 20px;
     text-align: center;
 }
+
+.tabla-body {
+    th {
+        vertical-align: baseline;
+    }
+    td {
+        vertical-align: baseline;
+    }
+}
+
