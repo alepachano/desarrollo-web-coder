@@ -107,6 +107,7 @@ function identificarId(identificadorProducto) {
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>`;
+    numeroCarrito(); //funcion creada en menu.js
 }
 
 // VALIDAR SI EL PRODUCTO DEL CARRITO SE REPITE
