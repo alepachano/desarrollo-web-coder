@@ -1,20 +1,21 @@
 let carrito = [];
 let cartList = "";
 let totalCompra = 0;
+let storageValores = localStorage.storageCarrito;
+const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
 
 // VALIDAR EL LOCAL STORAGE
-function validarLocalStorage(){
-    if (localStorage && localStorage.storageCarrito) {
-        carrito = JSON.parse(localStorage.storageCarrito);
+function validarLocalStorage() {
+    if (localStorage && storageValores) {
+        carrito = JSON.parse(storageValores);
         let botonesOpcionesCarrito = $('#botonesOpcionesCarrito');
-        botonesOpcionesCarrito.html(`<button type="button" class="btn btn-info" onclick="vaciarCarrito()">Vaciar carrito</button>
+        botonesOpcionesCarrito.html(`<button type="button" class="btn btn-info" onclick="vaciarCarrito()" id="vaciarCarrito">Vaciar carrito</button>
                                      <button type="button" class="btn btn-info" onclick="mercadoPago()">Continuar compra</button>`);
-    } else if (carrito.length === 0) {
-            const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
-            alertaCarritoVacio.innerHTML =
-            `<div class="mt-3 alert alert-danger" role="alert">
-                ¡Tu carrito de compras se encuentra vacio!
-            </div>`;
+    } else {
+        alertaCarritoVacio.innerHTML =
+        `<div class="mt-3 alert alert-danger" role="alert">
+            ¡Tu carrito de compras se encuentra vacio!
+        </div>`;
     }
 }
 
@@ -64,7 +65,7 @@ function renderizarCarrito() {
         const precioProducto = item.cantidadCompra * item.precio;
         calcularTotal += precioProducto;
         carritoHTML += 
-        `<tr>
+        `<tr class="tabla-body">
             <th scope="row">${index+1}</th>
             <td>${item.nombre}</td>
             <td>
@@ -106,9 +107,11 @@ function actualizarPantalla() {
 }
 
 // BOTON VACIAR CARRITO
-function vaciarCarrito(){
+function vaciarCarrito() {
     localStorage.clear();
+    storageValores = localStorage.storageCarrito;
     carrito = [];
+    numeroCarrito(); //funcion creada en menu.js
     validarLocalStorage();
 }
 
@@ -118,9 +121,9 @@ function eliminarProducto(item) {
     localStorage.setItem('storageCarrito', JSON.stringify(carrito));
     limpiarPantalla();
     actualizarPantalla();
+    numeroCarrito();
     if (carrito.length === 0) {
         localStorage.clear();
-        const alertaCarritoVacio = document.getElementById('mostrarCarritoDeCompras');
         alertaCarritoVacio.innerHTML =
         `<div class="mt-3 alert alert-danger" role="alert">
             ¡Tu carrito de compras se encuentra vacio!

@@ -1,20 +1,32 @@
-// Evento jQuery al seleccionar el input
-var inputForm = $(".form-control");
-var iconCarrito = $("#iconoCarrito");
+let storageValores = localStorage.storageCarrito;
+let carrito = [];
+let formulario = document.getElementById('formulario');
+let inputForm = $(".form-control");
+let iconCarrito = $("#iconoCarrito");
 
-$(document).ready(function(){
-    inputForm.focus(function(){
+// FUNCION PARA MOSTRAR CANTIDAD DE PRODUCTOS EN EL ICONO DE CARRITO DE COMPRAS, SEGUN LOCAL STORAGE Y CARRITO.LENGTH
+const validarLocalStorage = () => {
+    if(storageValores === undefined) {
+        carrito = [];
+    } else {
+        carrito = JSON.parse(storageValores);
+    }
+}
+
+// Evento usando jQuery al seleccionar el input
+$(document).ready(function() {
+    inputForm.focus(function() {
         $(this).css("background-color", "#dbfdff");
     });
 
-    inputForm.blur(function(){
+    inputForm.blur(function() {
         $(this).css("background-color", "white");
     });
 });
 
 // VALIDACION AL HACER CLICK EN EL BUTTON TYPE SUBMIT "ENVIAR"
 let botonEnviar = document.getElementById('enviarFormulario');
-botonEnviar.addEventListener("click", function(){
+botonEnviar.addEventListener("click", function() {
     let formulario = {
     nombre: document.getElementById('txtNombre').value,
     apellido: document.getElementById('txtApellido').value,
@@ -25,18 +37,18 @@ botonEnviar.addEventListener("click", function(){
     mensaje: document.getElementById('mensaje').value
     }
     validarCamposTexto(formulario);
-})
+});
 
 // FUNCION PARA MODAL DE BOTON 
-function mostrarModal(){
+function mostrarModal() {
     $("#miModal").modal("show");
 }
 
 // ALERTAS DE VALIDACION
-function enviarAlertaExitoso(){
+function enviarAlertaExitoso() {
     let alertaFormulario = document.getElementById('alertaFormulario');
     alertaFormulario.innerHTML = 
-    `<div class="alert alert-success" role="alert">
+    `<div class="alert alert-success mt-2" role="alert">
         ¡Se han ingresado correctamente sus datos!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -47,7 +59,7 @@ function enviarAlertaExitoso(){
 function enviarAlertaError(campoFormulario) {
     let alertaFormulario = document.getElementById('alertaFormulario');
     alertaFormulario.innerHTML = 
-    `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    `<div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
         Estimado usuario: debe ingresar informacion correcta en el campo <strong>${campoFormulario}</strong>.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -55,8 +67,8 @@ function enviarAlertaError(campoFormulario) {
     </div>`;
 }
 
-// VALIDACION DE CAMPOS
-function validarCamposTexto(formulario){
+// VALIDACION DE CAMPOS DE FORMULARIO
+function validarCamposTexto(formulario) {
     if ((formulario.nombre.trim() == null) || (formulario.nombre.trim().length === 0)) {
         enviarAlertaError('nombre');
     } else if ((formulario.apellido.trim() == null) || (formulario.apellido.trim().length === 0)) {
@@ -74,5 +86,8 @@ function validarCamposTexto(formulario){
     } else {
         enviarAlertaExitoso();
         mostrarModal();
+        form.reset();
     }
 }
+
+validarLocalStorage();

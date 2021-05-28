@@ -36,13 +36,15 @@ a.colorCategoria.nav-link:hover {
   color: #ffffff;
   font-weight: bold; }
 
+#menuCarrito:hover {
+  text-decoration: none; }
+
 .button-incremento-decremento {
   border: none;
   background-color: #13c4d1;
   color: #ffffff;
-  font-size: 15px;
   text-align: center;
-  height: 20px; }
+  font-size: 20px; }
 
 .deleteItem {
   background-color: #ffffff;
@@ -52,6 +54,12 @@ a.colorCategoria.nav-link:hover {
   height: 20px;
   width: 20px;
   text-align: center; }
+
+.tabla-body th {
+  vertical-align: baseline; }
+
+.tabla-body td {
+  vertical-align: baseline; }
 
 * {
   font-family: "Raleway", sans-serif; }

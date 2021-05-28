@@ -62,7 +62,7 @@ function buscarProductosEnBaseDeDatos() {
 productos = buscarProductosEnBaseDeDatos();
 
 // FUNCION PARA MOSTRAR LAS CARDS 
-function mostrarProductos(categoria){
+function mostrarProductos(categoria) {
     let cards = "";
     let productosAMostrar = productos.filter(elemento => elemento.categoria === categoria);
     productosAMostrar.forEach(element => {
@@ -110,6 +110,7 @@ function identificarId(identificadorProducto) {
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>`;
+    numeroCarrito(); //funcion creada en menu.js
 }
 
 // VALIDAR SI EL PRODUCTO DEL CARRITO SE REPITE
