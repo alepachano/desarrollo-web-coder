@@ -5,10 +5,8 @@ let carrito = [];
 const validarLocalStorage = () => {
     if(storageValores === undefined) {
         carrito = [];
-        console.log('tu carrito no contiene nada', carrito);
     } else {
         carrito = JSON.parse(storageValores);
-        console.log('esto es tu carrito', carrito);
     }
 }
 
