@@ -76,7 +76,9 @@ function mostrarProductos(categoria) {
                     <p class="card-text">CLP ${element.precio}</p>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info" onclick="identificarId(${element.id})">Agregar al carrito</button>
+                    <button type="submit" class="btn btn-info buttonAgregarAlCarrito" onclick="identificarId(${element.id})">
+                        <a href="#alertaAgregarAlCarrito">Agregar al carrito</a>
+                    </button>
                 </div>
             </div>
         </div>`;

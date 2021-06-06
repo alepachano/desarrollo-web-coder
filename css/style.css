@@ -25,6 +25,10 @@ a.colorCategoria.nav-link:hover {
   border: none;
   background-color: #ffffff; }
 
+.buttonAgregarAlCarrito a {
+  text-decoration: none;
+  color: #ffffff; }
+
 .img-card {
   width: 200px;
   height: 200px;
@@ -60,6 +64,10 @@ a.colorCategoria.nav-link:hover {
 
 .tabla-body td {
   vertical-align: baseline; }
+
+#enviarFormulario a {
+  text-decoration: none;
+  color: #ffffff; }
 
 * {
   font-family: "Raleway", sans-serif; }
