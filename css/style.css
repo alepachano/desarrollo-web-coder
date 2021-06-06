@@ -25,6 +25,10 @@ a.colorCategoria.nav-link:hover {
   border: none;
   background-color: #ffffff; }
 
+.buttonAgregarAlCarrito a {
+  text-decoration: none;
+  color: #ffffff; }
+
 .img-card {
   width: 200px;
   height: 200px;
